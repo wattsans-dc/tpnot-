@@ -10,7 +10,7 @@ const MovieList = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const res = await axios.get(`https://api.themoviedb.org/3/movie/${category}?api_key=YOUR_API_KEY`);
+      const res = await axios.get(`https://api.themoviedb.org/3/movie/${category}?api_key=37292c5783484ec5c8d48b805a885e38`);
       setMovies(res.data.results);
     };
     fetchMovies();
@@ -18,7 +18,7 @@ const MovieList = () => {
 
   const handleSearch = async () => {
     if (search.trim() !== '') {
-      const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=YOUR_API_KEY&query=${search}`);
+      const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=37292c5783484ec5c8d48b805a885e38&query=${search}`);
       setMovies(res.data.results);
     }
   };

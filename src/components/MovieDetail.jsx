@@ -12,11 +12,11 @@ const MovieDetail = () => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=YOUR_API_KEY`);
+      const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=37292c5783484ec5c8d48b805a885e38`);
       setMovie(res.data);
     };
     const fetchActors = async () => {
-      const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=YOUR_API_KEY`);
+      const res = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=37292c5783484ec5c8d48b805a885e38`);
       setActors(res.data.cast.slice(0, 10));
     };
     fetchMovie();
