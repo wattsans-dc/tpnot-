@@ -1,36 +1,85 @@
-.similarMovies {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+.movieDetail {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .movieDetail .imageContainer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .movieDetail .poster {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .movieDetail h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .movieDetail p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #aaaaaa;
+  }
+  
+  .movieDetail button {
     margin-top: 20px;
   }
   
+  .movieDetail ul {
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+  
+  .movieDetail ul li {
+    margin-bottom: 5px;
+  }
+  
+  .movieDetail .similarMovies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .movieDetail .similarMovie {
+    width: 150px;
+    text-align: center;
+  }
+  
+  .movieDetail .similarMovie img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
   .similarMovie {
+    width: 150px;
     text-align: center;
   }
   
   .similarMovie img {
     width: 100%;
-    border-radius: 10px;
-  }
-  
-  .similarMovie h4 {
-    font-size: 1rem;
-    margin: 10px 0;
-  }
-  
-  .similarMovie button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
   
-  .similarMovie button:hover {
-    background-color: #0056b3;
+  .detailsLink {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .detailsLink:hover {
+    color: #0056b3;
   }
   
