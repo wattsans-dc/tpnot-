@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #1db954;
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #17a744;
+  }
+  
+  @media (max-width: 768px) {
+    .filters {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .movieDetail {
+      padding: 15px;
+    }
+  
+    .movies {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  
+    .wishlist ul {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+  

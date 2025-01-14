@@ -1,0 +1,56 @@
+.wishlist {
+    padding: 20px;
+  }
+  
+  .wishlist h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .wishlist p {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #aaaaaa;
+  }
+  
+  .wishlist ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .wishlist li {
+    background-color: #1c1c1c;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  
+  .wishlist li img {
+    width: 100%;
+    border-bottom: 2px solid #333;
+  }
+  
+  .wishlist li h3 {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .wishlist li button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .wishlist li button:hover {
+    background-color: #c0392b;
+  }
+  
