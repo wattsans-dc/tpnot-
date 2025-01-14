@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom'; // Import de Link
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { WishlistContext } from '../context/WishlistContext';
 import styles from '../styles/MovieDetail.module.css';
