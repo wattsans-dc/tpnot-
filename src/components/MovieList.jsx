@@ -8,21 +8,28 @@ const MovieList = () => {
   const [category, setCategory] = useState('popular');
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [debouncedSearch, setDebouncedSearch] = useState('');
 
-  // Fetch movies based on category and page
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
   useEffect(() => {
     const fetchMovies = async () => {
       const endpoint =
-        search.trim() === ''
+        debouncedSearch.trim() === ''
           ? `https://api.themoviedb.org/3/movie/${category}?api_key=37292c5783484ec5c8d48b805a885e38&page=${page}`
-          : `https://api.themoviedb.org/3/search/movie?api_key=37292c5783484ec5c8d48b805a885e38&query=${search}&page=${page}`;
+          : `https://api.themoviedb.org/3/search/movie?api_key=37292c5783484ec5c8d48b805a885e38&query=${debouncedSearch}&page=${page}`;
       const res = await axios.get(endpoint);
       setMovies(res.data.results || []);
     };
     fetchMovies();
-  }, [category, page, search]);
+  }, [category, page, debouncedSearch]);
 
-  // Handlers for pagination and category selection
   const handleNextPage = () => setPage((prev) => prev + 1);
   const handlePreviousPage = () => setPage((prev) => Math.max(prev - 1, 1));
   const handleCategoryChange = (newCategory) => {
@@ -35,10 +42,30 @@ const MovieList = () => {
   return (
     <div className={styles.movieList}>
       <div className={styles.filters}>
-        <button onClick={() => handleCategoryChange('popular')}>Populaires</button>
-        <button onClick={() => handleCategoryChange('now_playing')}>En cours</button>
-        <button onClick={() => handleCategoryChange('top_rated')}>Mieux notés</button>
-        <button onClick={() => handleCategoryChange('upcoming')}>À venir</button>
+        <button
+          onClick={() => handleCategoryChange('popular')}
+          className={category === 'popular' ? styles.active : ''}
+        >
+          Populaires
+        </button>
+        <button
+          onClick={() => handleCategoryChange('now_playing')}
+          className={category === 'now_playing' ? styles.active : ''}
+        >
+          En cours
+        </button>
+        <button
+          onClick={() => handleCategoryChange('top_rated')}
+          className={category === 'top_rated' ? styles.active : ''}
+        >
+          Mieux notés
+        </button>
+        <button
+          onClick={() => handleCategoryChange('upcoming')}
+          className={category === 'upcoming' ? styles.active : ''}
+        >
+          À venir
+        </button>
         <div className={styles.searchBar}>
           <input
             type="text"
@@ -46,7 +73,6 @@ const MovieList = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button onClick={handleSearch}>Rechercher</button>
         </div>
       </div>
       <div className={styles.movies}>

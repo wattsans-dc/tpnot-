@@ -104,3 +104,26 @@
     font-weight: bold;
   }
   
+
+  .filters button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .filters button:hover {
+    background-color: #022d33;
+  }
+  
+  .filters button.active {
+    background-color: #1db954;
+    font-weight: bold;
+    cursor: default;
+    pointer-events: none;
+  }
+  
