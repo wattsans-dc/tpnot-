@@ -1,59 +1,106 @@
 .movieList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
   }
   
   .filters {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
     gap: 10px;
-  }
-  
-  .filters input {
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    background-color: #222;
-    color: white;
-    outline: none;
+    margin-bottom: 20px;
   }
   
   .filters button {
-    font-size: 0.9rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .filters button:hover {
+    background-color: #0056b3;
+  }
+  
+  .searchBar {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .searchBar input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .searchBar button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .searchBar button:hover {
+    background-color: #218838;
   }
   
   .movies {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
+    width: 100%;
+    max-width: 1200px;
   }
   
   .movie {
     text-align: center;
-    background-color: #1c1c1c;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-  
-  .movie:hover {
-    transform: scale(1.05);
   }
   
   .movie img {
     width: 100%;
-    border-bottom: 2px solid #333;
+    border-radius: 10px;
   }
   
-  .movie h3 {
-    margin: 10px 0;
-    font-size: 1.1rem;
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
   }
   
-  .movie p {
-    margin: 0 0 10px;
-    font-size: 0.9rem;
-    color: #aaaaaa;
+  .pagination button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  .pagination span {
+    font-size: 18px;
+    font-weight: bold;
   }
   
