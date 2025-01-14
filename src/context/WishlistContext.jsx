@@ -13,8 +13,15 @@ export const WishlistProvider = ({ children }) => {
   }, [wishlist]);
 
   const addToWishlist = (movie) => {
-    setWishlist((prev) => [...prev, movie]);
+    setWishlist((prev) => {
+      if (!prev.some((item) => item.id === movie.id)) {
+        return [...prev, movie];
+      }
+      alert("Ce film est déjà dans votre wishlist !");
+      return prev;
+    });
   };
+  
 
   const removeFromWishlist = (id) => {
     setWishlist((prev) => prev.filter((movie) => movie.id !== id));
