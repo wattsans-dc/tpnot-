@@ -15,6 +15,9 @@ const MovieDetail = () => {
   const { addToWishlist } = useContext(WishlistContext);
 
   useEffect(() => {
+    // Assurez-vous que la page soit en haut au chargement
+    window.scrollTo(0, 0);
+
     const fetchMovieDetails = async () => {
       try {
         const movieRes = await axios.get(
@@ -78,7 +81,6 @@ const MovieDetail = () => {
           </li>
         ))}
       </ul>
-
       <h3>Films similaires :</h3>
       <div className={styles.similarMovies}>
         {similarMovies.map((similarMovie) => (
@@ -92,7 +94,11 @@ const MovieDetail = () => {
               alt={similarMovie.title}
               className={styles.similarPoster}
             />
-            <h4>{similarMovie.title}</h4>
+            <div className={styles.titleContainer}>
+              <h4 className={styles.scrollableTitle}>
+                {similarMovie.title}
+              </h4>
+            </div>
             <Link to={`/movie/${similarMovie.id}`} className={styles.detailsLink}>
               Voir les détails
             </Link>

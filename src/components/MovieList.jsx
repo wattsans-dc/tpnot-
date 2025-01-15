@@ -88,7 +88,11 @@ const MovieList = () => {
               }
               alt={movie.title || 'Aucune image disponible'}
             />
-            <h3>{movie.title}</h3>
+            <div className={styles.titleContainer}>
+              <h3 className={styles.movieTitle} data-title={movie.title}>
+                {movie.title}
+              </h3>
+            </div>
             <p>Note : {movie.vote_average || 'N/A'}</p>
             <Link to={`/movie/${movie.id}`}>Voir les détails</Link>
           </div>
