@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styles from '../styles/MovieList.module.css';
 
+const DEFAULT_MOVIE_IMAGE = 'https://placehold.co/200x300?text=No+Image';
+
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState('popular');
@@ -78,9 +80,16 @@ const MovieList = () => {
       <div className={styles.movies}>
         {movies.map((movie) => (
           <div key={movie.id} className={styles.movie}>
-            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+                  : DEFAULT_MOVIE_IMAGE
+              }
+              alt={movie.title || 'Aucune image disponible'}
+            />
             <h3>{movie.title}</h3>
-            <p>Note : {movie.vote_average}</p>
+            <p>Note : {movie.vote_average || 'N/A'}</p>
             <Link to={`/movie/${movie.id}`}>Voir les détails</Link>
           </div>
         ))}
