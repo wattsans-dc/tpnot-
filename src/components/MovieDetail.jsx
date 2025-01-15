@@ -4,8 +4,8 @@ import axios from 'axios';
 import { WishlistContext } from '../context/WishlistContext';
 import styles from '../styles/MovieDetail.module.css';
 
-const DEFAULT_ACTOR_IMAGE = 'https://placehold.co/150x150?text=No+Image';
-const DEFAULT_MOVIE_IMAGE = 'https://placehold.co/200x300?text=No+Image';
+const IMAGE_ACTEUR_PAR_DEFAUT = 'https://placehold.co/150x150?text=Aucune+Image';
+const IMAGE_FILM_PAR_DEFAUT = 'https://placehold.co/200x300?text=Aucune+Image';
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -15,23 +15,22 @@ const MovieDetail = () => {
   const { addToWishlist } = useContext(WishlistContext);
 
   useEffect(() => {
-    // Assurez-vous que la page soit en haut au chargement
     window.scrollTo(0, 0);
 
     const fetchMovieDetails = async () => {
       try {
         const movieRes = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=37292c5783484ec5c8d48b805a885e38`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=37292c5783484ec5c8d48b805a885e38&language=fr`
         );
         setMovie(movieRes.data);
 
         const actorsRes = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}/credits?api_key=37292c5783484ec5c8d48b805a885e38`
+          `https://api.themoviedb.org/3/movie/${id}/credits?api_key=37292c5783484ec5c8d48b805a885e38&language=fr`
         );
         setActors(actorsRes.data.cast.slice(0, 10));
 
         const similarRes = await axios.get(
-          `https://api.themoviedb.org/3/movie/${id}/similar?api_key=37292c5783484ec5c8d48b805a885e38`
+          `https://api.themoviedb.org/3/movie/${id}/similar?api_key=37292c5783484ec5c8d48b805a885e38&language=fr`
         );
         setSimilarMovies(similarRes.data.results || []);
       } catch (error) {
@@ -51,7 +50,7 @@ const MovieDetail = () => {
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              : DEFAULT_MOVIE_IMAGE
+              : IMAGE_FILM_PAR_DEFAUT
           }
           alt={movie.title}
           className={styles.poster}
@@ -72,7 +71,7 @@ const MovieDetail = () => {
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                  : DEFAULT_ACTOR_IMAGE
+                  : IMAGE_ACTEUR_PAR_DEFAUT
               }
               alt={actor.name}
               className={styles.actorImage}
@@ -89,7 +88,7 @@ const MovieDetail = () => {
               src={
                 similarMovie.poster_path
                   ? `https://image.tmdb.org/t/p/w200${similarMovie.poster_path}`
-                  : DEFAULT_MOVIE_IMAGE
+                  : IMAGE_FILM_PAR_DEFAUT
               }
               alt={similarMovie.title}
               className={styles.similarPoster}

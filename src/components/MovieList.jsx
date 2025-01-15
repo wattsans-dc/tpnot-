@@ -24,8 +24,8 @@ const MovieList = () => {
     const fetchMovies = async () => {
       const endpoint =
         debouncedSearch.trim() === ''
-          ? `https://api.themoviedb.org/3/movie/${category}?api_key=37292c5783484ec5c8d48b805a885e38&page=${page}`
-          : `https://api.themoviedb.org/3/search/movie?api_key=37292c5783484ec5c8d48b805a885e38&query=${debouncedSearch}&page=${page}`;
+          ? `https://api.themoviedb.org/3/movie/${category}?api_key=37292c5783484ec5c8d48b805a885e38&language=fr&page=${page}`
+          : `https://api.themoviedb.org/3/search/movie?api_key=37292c5783484ec5c8d48b805a885e38&query=${debouncedSearch}&language=fr&page=${page}`;
       const res = await axios.get(endpoint);
       setMovies(res.data.results || []);
     };
