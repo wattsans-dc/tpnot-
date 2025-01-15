@@ -34,7 +34,7 @@
   margin-top: 20px;
   padding: 10px 15px;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: #1db954;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -43,7 +43,7 @@
 }
 
 .movieDetail button:hover {
-  background-color: #0056b3;
+  background-color: #098534;
 }
 
 .movieDetail ul {
@@ -82,7 +82,7 @@
 .movieDetail .similarMovie button {
   font-size: 0.9rem;
   padding: 8px 12px;
-  background-color: #007bff;
+  background-color: #1db954;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -91,21 +91,21 @@
 }
 
 .movieDetail .similarMovie button:hover {
-  background-color: #0056b3;
+  background-color: #098534;
 }
 
 .detailsLink {
   display: inline-block;
   margin-top: 10px;
   font-size: 0.9rem;
-  color: #007bff;
+  color: #1db954;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 .detailsLink:hover {
-  color: #0056b3;
+  color: #0f973f;
 }
 
 .actorsList {

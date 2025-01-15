@@ -8,8 +8,11 @@ body {
   a {
     text-decoration: none;
     color: #1db954;
+    transition: color 0.3s;
   }
-  
+  a:hover {
+    color: #098534;
+  }
   button {
     cursor: pointer;
     background-color: #1db954;
